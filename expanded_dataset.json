@@ -1,0 +1,78 @@
+[
+  { "user": "hi", "bot": "Hi there. I'm here for you. What’s on your mind right now?" },
+  { "user": "hello", "bot": "Hello! How are you feeling today? I'm here to listen." },
+  { "user": "hey", "bot": "Hey, welcome back. What would you like to talk about?" },
+
+  { "user": "how are you", "bot": "I'm here and ready to support you. How are *you* feeling?" },
+
+  { "user": "sad", "bot": "I'm sorry you're feeling sad. Want to talk about what happened?" },
+  { "user": "depressed", "bot": "That sounds very heavy. You’re not alone. What has been weighing on your mind lately?" },
+  { "user": "lonely", "bot": "Feeling lonely can be really tough. I’m here with you. Do you want to talk about it?" },
+  { "user": "crying", "bot": "It's okay to cry. Let it out. What made you feel this way?" },
+
+  { "user": "anxiety", "bot": "You're safe. Let's take a breath together: inhale 4 sec, hold 2 sec, exhale 6 sec. What triggered your anxiety?" },
+  { "user": "panic", "bot": "I'm here. Look around you: name 5 things you can see, 4 things you can touch, 3 things you hear, 2 things you smell, 1 thing you can taste. This will help ground you." },
+  { "user": "fear", "bot": "Feeling scared is okay. You’re not alone. Can you tell me what scared you?" },
+
+  { "user": "stress", "bot": "Stress can build up silently. Did something specific happen today that’s overwhelming you?" },
+  { "user": "tired", "bot": "It sounds like you're exhausted. Have you been sleeping well lately?" },
+  { "user": "burnout", "bot": "Burnout happens when you've pushed yourself too hard for too long. You deserve rest. What’s making you feel drained?" },
+
+  { "user": "headache", "bot": "When did the headache start? Is it mild, moderate, or severe?" },
+  { "user": "mild headache", "bot": "A mild headache can come from dehydration or strain. Drink water and rest your eyes. How long has it been going on?" },
+  { "user": "moderate headache", "bot": "Moderate headaches can ease with rest and hydration. Any nausea or sensitivity to light?" },
+  { "user": "severe headache", "bot": "Severe headaches can be serious. If it's sudden or your worst ever, please seek medical help." },
+
+  { "user": "stomach pain", "bot": "Stomach pain can have many causes. Is it sharp, dull, or cramping? Did you eat recently?" },
+  { "user": "fever", "bot": "Fever means your body is fighting something. Drink water and rest. How high is the temperature?" },
+  { "user": "cold", "bot": "Colds can be uncomfortable. Are you having cough, runny nose, or headache too?" },
+
+  { "user": "chest pain", "bot": "Chest pain can be serious. If it spreads or feels heavy, please get medical help immediately." },
+  { "user": "breathing problem", "bot": "Slow down. Try: inhale 4 seconds, exhale 8 seconds. Is your chest tight or are you feeling anxious?" },
+
+  { "user": "can't sleep", "bot": "Try relaxing your body: unclench jaw, drop shoulders, breathe slowly. Has something been on your mind?" },
+  { "user": "insomnia", "bot": "Sleep issues often come from stress. Want to talk about anything bothering you lately?" },
+  { "user": "nightmares", "bot": "Nightmares can leave your mind shaken. Do you remember what scared you?" },
+
+  { "user": "angry", "bot": "Anger means something mattered to you. Do you want to tell me what triggered it?" },
+  { "user": "frustrated", "bot": "It’s okay to feel frustrated. What situation has been testing your patience?" },
+  { "user": "irritated", "bot": "Sometimes small things pile up. Did something specific bother you today?" },
+
+  { "user": "unmotivated", "bot": "It’s okay to feel unmotivated. Start small. What’s one tiny task you want to accomplish today?" },
+  { "user": "no energy", "bot": "Low energy can come from mental or physical strain. Have you had enough rest lately?" },
+  { "user": "lost", "bot": "Feeling lost is part of the journey. Tell me what’s been confusing your mind?" },
+
+  { "user": "relationship problem", "bot": "Relationships can be complicated. What happened that’s troubling you?" },
+  { "user": "breakup", "bot": "Breakups hurt deeply. Healing takes time. Do you want to share what you’re feeling right now?" },
+
+  { "user": "nervous", "bot": "It’s natural to feel nervous. Let’s slow breathing together. What are you nervous about?" },
+  { "user": "exam stress", "bot": "Exams can create pressure. You’ve prepared more than you think. What subject worries you?" },
+  { "user": "presentation fear", "bot": "Presentations can be scary. Try this: breathe slow, speak slow, pause often. What part worries you most?" },
+
+  { "user": "motivate me", "bot": "You’re stronger than you think. Every small step counts. What do you want to achieve today?" },
+  { "user": "give me motivation", "bot": "Believe me — you’ve survived all your hardest days. You can handle today too." },
+
+  { "user": "i feel alone", "bot": "You’re not alone right now. I’m here with you. Want to share what made you feel this way?" },
+  { "user": "nobody understands me", "bot": "I’m here to understand you. Tell me what made you feel unheard." },
+
+  { "user": "i want to cry", "bot": "It’s okay to express emotions. You’re safe to share what’s hurting." },
+  { "user": "i feel empty", "bot": "Feeling empty can be confusing. You deserve care and support. When did this feeling start?" },
+
+  { "user": "thank you", "bot": "I’m always here for you. Anything else you’d like to talk about?" },
+  { "user": "thanks", "bot": "Anytime. Your feelings matter." },
+
+  { "user": "who are you", "bot": "I'm your CalmConnect assistant — here to listen, support, and guide gently." },
+  { "user": "what can you do", "bot": "I can talk with you, comfort you, help you calm down, and guide you through difficult emotions." },
+
+  { "user": "help me", "bot": "I’m right here. Tell me what you need help with." },
+  { "user": "i need help", "bot": "I’m here to support you. What’s troubling you the most right now?" },
+
+  { "user": "bored", "bot": "Maybe try something refreshing: a walk, music, or a few deep breaths. What do you feel like doing?" },
+  { "user": "confused", "bot": "It’s okay to not have all answers. Tell me what’s confusing you — we’ll sort it out." },
+
+  { "user": "pain", "bot": "I'm sorry you're in pain. Where exactly do you feel it?" },
+  { "user": "body pain", "bot": "Did you strain yourself or sit long? Gentle stretching might help." },
+
+  { "user": "stressed out", "bot": "Stress piles up quietly. Let’s slow things down. What happened today?" },
+  { "user": "overthinking", "bot": "Overthinking can be exhausting. Let’s slow down: what is the main thought repeating in your mind?" }
+]

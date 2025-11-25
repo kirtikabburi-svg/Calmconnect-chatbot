@@ -1,0 +1,16 @@
+{
+  "name": "calmconnect",
+  "version": "1.0.0",
+  "description": "Minimal Node.js backend for CalmConnect mental health chatbot",
+  "main": "calmconnect.js",
+  "scripts": {
+    "start": "node calmconnect.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "groq-sdk": "^0.36.0",
+    "openai": "^4.104.0"
+  }
+}

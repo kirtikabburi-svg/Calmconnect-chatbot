@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>CalmConnect — Welcome</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui}
+  body{overflow:hidden;background:#0a0f1a;height:100vh;width:100vw;display:flex;align-items:center;justify-content:center;color:white}
+  .bg{position:absolute;inset:0;background:linear-gradient(120deg,#152238,#1f3b5c,#0d2035);background-size:400% 400%;animation:gradientMove 18s ease infinite;z-index:-3;}
+  @keyframes gradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+  .glow{position:absolute;width:420px;height:420px;background:radial-gradient(circle,rgba(80,150,255,0.55),rgba(80,150,255,0) 70%);top:20%;left:10%;filter:blur(60px);animation:float1 12s ease-in-out infinite;z-index:-2;}
+  .glow2{position:absolute;width:520px;height:520px;background:radial-gradient(circle,rgba(255,110,150,0.55),rgba(255,110,150,0) 70%);bottom:15%;right:8%;filter:blur(80px);animation:float2 14s ease-in-out infinite;z-index:-2;}
+  @keyframes float1{0%{transform:translateY(0)}50%{transform:translateY(60px)}100%{transform:translateY(0)}}
+  @keyframes float2{0%{transform:translateY(0)}50%{transform:translateY(-70px)}100%{transform:translateY(0)}}
+  .bot{width:160px;height:160px;background:#ffffff0d;border:2px solid rgba(255,255,255,0.15);border-radius:22px;display:flex;align-items:center;justify-content:center;font-size:60px;backdrop-filter:blur(10px);animation:botFloat 4s ease-in-out infinite;margin:auto;}
+  @keyframes botFloat{0%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.03)}100%{transform:translateY(0) scale(1)}}
+  .container{position:relative;text-align:center;max-width:600px;padding:20px;}
+  h1{font-size:40px;font-weight:700;margin-top:26px;}
+  p{margin-top:12px;font-size:17px;opacity:0.85;line-height:1.4}
+  .btn{margin-top:28px;padding:14px 28px;background:#3b82f6;border:none;border-radius:14px;color:white;font-size:16px;cursor:pointer;font-weight:600;transition:0.25s;}
+  .btn:hover{background:#2563eb;transform:translateY(-3px);}
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="glow"></div>
+  <div class="glow2"></div>
+
+  <div class="container">
+    <div class="bot">🤖</div>
+    <h1>Welcome to CalmConnect</h1>
+    <p>Your calm space for emotional support, grounding, and gentle conversation.</p>
+    <!-- IMPORTANT: link to chat.html -->
+    <button class="btn" onclick="window.location.href='chat.html'">Start Chat</button>
+  </div>
+</body>
+</html>

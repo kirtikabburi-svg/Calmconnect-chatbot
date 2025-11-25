@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CalmConnect — Chat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --secondary: #ef6aa7;
+      --bg: #0b1320;
+      --panel: #10182b;
+      --card: #18223a;
+      --bubble-bot: #16213a;
+      --bubble-user: linear-gradient(90deg,#3b82f6,#2563eb);
+      --accent: #cfe6ff;
+      --border: rgba(255,255,255,0.06);
+      --shadow: 0 4px 32px 0 rgba(59,130,246,0.10);
+      --radius: 16px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,system-ui,Arial;}
+    html,body{height:100%}
+    body{
+      background: linear-gradient(120deg,#071029 0%, #0b1320 100%);
+      color:#e6eef8;
+      min-height:100vh;
+      width:100vw;
+      overflow-x:hidden;
+    }
+    .app {
+      width:100%;
+      max-width:1100px;
+      margin:40px auto;
+      min-height:80vh;
+      display:grid;
+      grid-template-columns: 350px 1fr;
+      gap:32px;
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      background:rgba(255,255,255,0.02);
+      border:1px solid var(--border);
+      padding:16px;
+    }
+    .panel-left {
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding:24px 18px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      min-height:420px;
+      box-shadow: 0 2px 16px 0 rgba(59,130,246,0.07);
+      border:1px solid var(--border);
+    }
+    .logo {
+      display:flex;
+      gap:16px;
+      align-items:center;
+      margin-bottom:8px;
+    }
+    .logo .avatar {
+      width:70px;height:70px;border-radius:18px;
+      background:linear-gradient(135deg,#3b82f6,#ef6aa7);
+      display:flex;align-items:center;justify-content:center;
+      font-size:38px;
+      box-shadow:0 6px 18px rgba(59,130,246,0.13);
+      border:2px solid #fff2;
+    }
+    .logo h1{font-size:22px;margin:0;font-weight:700;}
+    .meta {font-size:13px;color:#a8b3c7;font-weight:600;}
+    .panel-left .card {
+      background: var(--card);
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+      margin-bottom:10px;
+      box-shadow: 0 1px 8px 0 rgba(59,130,246,0.06);
+    }
+    .quick-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;}
+    .btn {
+      padding:10px 16px;
+      background:var(--bubble-user);
+      border-radius:12px;
+      border:none;
+      color:#fff;
+      cursor:pointer;
+      font-weight:600;
+      font-size:14px;
+      transition:0.15s;
+      box-shadow: 0 2px 8px 0 rgba(59,130,246,0.07);
+    }
+    .btn.secondary{
+      background:transparent;
+      border:1px dashed var(--border);
+      color:#9fb4d9;
+    }
+    .btn:hover { filter:brightness(1.1); transform:translateY(-2px);}
+    .techniques { display:flex; gap:8px; margin-top:6px; flex-wrap:wrap; }
+    .chip{
+      background:var(--bubble-bot);
+      padding:9px 12px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      font-size:13px;
+      color:var(--accent);
+      cursor:pointer;
+      transition:0.13s;
+      margin-bottom:3px;
+    }
+    .chip:hover {background:var(--primary);color:#fff;}
+    .panel-right {
+      background: var(--panel);
+      border-radius: var(--radius);
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      border:1px solid var(--border);
+      box-shadow: 0 2px 16px 0 rgba(59,130,246,0.07);
+    }
+    .header {
+      padding:16px 22px;
+      border-bottom:1px solid var(--border);
+      display:flex;align-items:center;gap:16px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+    }
+    .header .title{ font-weight:700; font-size:19px; color:#f8fafc; }
+    .header .subtitle{ font-size:13px;color:#9fb4d9;margin-left:auto }
+    #messages {
+      flex:1; padding:22px; display:flex;flex-direction:column;gap:15px; overflow:auto;
+      background:
+        radial-gradient(600px 200px at 10% 10%, rgba(59,130,246,0.03), transparent),
+        radial-gradient(500px 200px at 90% 90%, rgba(239,106,167,0.03), transparent);
+    }
+    .bubble {
+      max-width:78%; padding:14px 17px;
+      border-radius:13px; line-height:1.5; font-size:15px; word-break:break-word;
+      box-shadow: 0 1px 6px 0 rgba(59,130,246,0.06);
+      margin-bottom:2px;
+    }
+    .bubble.bot {
+      background:var(--bubble-bot); color:#e6eef8;
+      border-bottom-left-radius:5px;
+    }
+    .bubble.user {
+      background:var(--bubble-user); color:white;
+      align-self:flex-end;
+      border-bottom-right-radius:5px;
+    }
+    .meta-line { font-size:12px;color:#98a8c6;margin-top:6px; }
+    .typing { display:inline-flex; gap:6px; align-items:center; }
+    .dot { width:8px;height:8px;background:#9fb4d9;border-radius:50%; animation:blink 1s infinite; opacity:0.2; }
+    .dot:nth-child(2){ animation-delay:0.15s } .dot:nth-child(3){ animation-delay:0.30s }
+    @keyframes blink { 0%{opacity:0.2} 50%{opacity:1} 100%{opacity:0.2} }
+    .input-bar {
+      display:flex; gap:12px; padding:16px 20px; border-top:1px solid var(--border); align-items:center;
+      background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.00));
+    }
+    .input-bar input[type="text"]{
+      flex:1; padding:13px 14px;border-radius:11px;border:none;background:#0b1220;color:#e6eef8; outline:none; font-size:15px;
+      box-shadow:0 1px 4px 0 rgba(59,130,246,0.04);
+    }
+    .icon-btn {
+      background:transparent;
+      border:1px solid var(--border);
+      padding:10px;
+      border-radius:11px;
+      color:var(--accent);
+      cursor:pointer;
+      font-size:18px;
+      transition:0.12s;
+    }
+    .icon-btn:hover {background:var(--primary);color:#fff;}
+    /* Mood chart styling */
+    #moodChart {
+      margin: 18px auto 0 auto;
+      background: #111b2d;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 8px 0 rgba(59,130,246,0.06);
+      display: block;
+    }
+    /* Responsive */
+    @media (max-width:900px){
+      .app { grid-template-columns: 1fr; gap:18px; padding:8px;}
+      .panel-left {order:2;}
+      .panel-right {order:1;}
+    }
+    @media (max-width:600px){
+      .app {padding:0; margin:0;}
+      .panel-left, .panel-right {padding:10px;}
+      .header {padding:10px;}
+      .input-bar {padding:10px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- LEFT PANEL: Splash + controls -->
+    <div class="panel-left">
+      <div class="logo">
+        <div class="avatar">🤖</div>
+        <div>
+          <h1>CalmConnect</h1>
+          <div class="meta">Gentle support • grounding • first-aid guidance</div>
+        </div>
+      </div>
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <strong>Quick start</strong>
+          <small style="color:#98a8c6">Tip</small>
+        </div>
+        <p style="margin-top:8px;font-size:13px;color:#bcd2ef">Try "I have a headache", "I feel anxious", or "I can't sleep". The assistant will ask follow ups and suggest calming techniques.</p>
+        <div class="quick-actions">
+          <button class="btn" onclick="quick('I have a headache')">I have a headache</button>
+          <button class="btn" onclick="quick('I feel anxious')">Feeling anxious</button>
+          <button class="btn" onclick="quick('I have chest pain')">Chest pain (urgent)</button>
+          <button class="btn secondary" onclick="clearChat()">Clear</button>
+        </div>
+      </div>
+      <div class="card" style="margin-top:8px">
+        <strong>Grounding techniques</strong>
+        <div class="techniques" style="margin-top:8px">
+          <div class="chip" onclick="useTechnique('box_breathing')">4-2-6 Breathing</div>
+          <div class="chip" onclick="useTechnique('grounding_54321')">5-4-3-2-1</div>
+          <div class="chip" onclick="useTechnique('mini_pause')">5s Reset</div>
+        </div>
+      </div>
+      <div style="flex:1"></div>
+      <div style="font-size:13px;color:#8aa2cf;text-align:center;margin-top:10px;">
+        <div>Made with care • Local only • No data sent externally</div>
+      </div>
+    </div>
+    <!-- RIGHT PANEL: Chat -->
+    <div class="panel-right">
+      <div class="header">
+        <div style="display:flex;gap:10px;align-items:center">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#3b82f6,#ef6aa7);display:flex;align-items:center;justify-content:center">🤖</div>
+          <div class="title">CalmConnect Assistant</div>
+        </div>
+        <div class="subtitle">Real-time support • Ask anything</div>
+      </div>
+      <div id="messages" aria-live="polite"></div>
+      <div class="input-bar">
+        <button class="icon-btn" id="micBtn" title="Record (toggle)">🎤</button>
+        <button class="icon-btn" id="ttsBtn" title="Read last message">🔊</button>
+        <input id="userInput" type="text" placeholder="Type a message..." aria-label="Message input" />
+        <button class="btn" id="sendBtn">Send</button>
+      </div>
+    </div>
+  </div>
+  <script src="chat.js"></script>
+</body>
+</html>
