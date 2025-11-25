@@ -153,10 +153,17 @@ app.post("/mood", (req, res) => {
 app.get("/mood", (req, res) => {
   res.json({ moodLog });
 });
+// --- Keep Render Server Alive ---
+setInterval(() => {
+  fetch("https://calmconnect-chatbot.onrender.com/status")
+    .then(() => console.log("Pinged self to stay awake"))
+    .catch(() => {});
+}, 180000); // every 3 minutes
 // Start server
 const PORT = process.env.PORT;
 app.listen(PORT, () =>
   console.log(`CalmConnect server running on port ${PORT}`)
 );
+
 
 
