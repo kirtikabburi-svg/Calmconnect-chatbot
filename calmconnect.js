@@ -1,5 +1,5 @@
 // calmconnect.js (FINAL FIXED VERSION)
-
+const fetch = require("node-fetch");   // 👉 REQUIRED for keep-alive
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
@@ -7,6 +7,9 @@ const fs = require("fs");
 const path = require("path");
 
 const app = express();
+// ------------------ UPDATE CORS HERE ------------------
+app.use(cors({ origin: "*" }));  // 👉 Allow Netlify to call your backend
+// 
 
 // Allow frontend to call backend
 app.use(cors({
@@ -168,6 +171,7 @@ const PORT = process.env.PORT;
 app.listen(PORT, () =>
   console.log(`CalmConnect server running on port ${PORT}`)
 );
+
 
 
 
