@@ -73,6 +73,19 @@ async function sendMessage() {
   }
   if (detectedMood) {
     saveMood(detectedMood);
+    if (detectedMood) {
+  saveMood(detectedMood);
+  if (detectedMood === "happy") {
+    addMessage("That's wonderful! Keep spreading your happiness. 😊", true);
+  } else if (detectedMood === "sad") {
+    addMessage("I'm here for you. Remember, it's okay to have tough days. 💙", true);
+  } else if (detectedMood === "angry") {
+    addMessage("It's okay to feel angry. Try taking a deep breath or writing down your feelings.", true);
+  } else if (detectedMood === "anxious") {
+    addMessage("Anxiety can be tough. Try grounding: 5 things you see, 4 you can touch, 3 you hear, 2 you smell, 1 you taste.", true);
+  }
+  return; // Prevents sending to backend if it's a mood word
+} 
     addMessage(`📝 Mood tracked: ${detectedMood.charAt(0).toUpperCase() + detectedMood.slice(1)}`, true);
   }
 
@@ -222,3 +235,4 @@ function suggestExtra(msg, mood) {
 // --- Render mood chart on load ---
 
 renderMoodChart();
+
