@@ -9,7 +9,11 @@ const path = require("path");
 const app = express();
 
 // Allow frontend to call backend
-app.use(cors());
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type"]
+}));
 app.use(express.json());
 
 // Serve all frontend files (chat.html, index.js, CSS)
@@ -164,6 +168,7 @@ const PORT = process.env.PORT;
 app.listen(PORT, () =>
   console.log(`CalmConnect server running on port ${PORT}`)
 );
+
 
 
 
